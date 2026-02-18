@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__search-console__*",
+      "mcp__serp-tracker__*",
+      "mcp__keyword-research__*"
+    ]
+  },
+  "mcpServers": {
+    "search-console": {
+      "command": "node",
+      "args": ["mcp/search-console/dist/index.js"],
+      "env": {
+        "GSC_SERVICE_ACCOUNT_PATH": "",
+        "GSC_SITE_URL": "https://kanpai-navi.com"
+      }
+    },
+    "serp-tracker": {
+      "command": "node",
+      "args": ["mcp/serp-tracker/dist/index.js"],
+      "env": {
+        "SERP_API_KEY": ""
+      }
+    },
+    "keyword-research": {
+      "command": "node",
+      "args": ["mcp/keyword-research/dist/index.js"],
+      "env": {
+        "KEYWORD_API_KEY": ""
+      }
+    }
+  }
+}

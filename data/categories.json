@@ -1,0 +1,193 @@
+{
+  "lastUpdated": "2026-02-18",
+  "categories": [
+    {
+      "id": "sake",
+      "name": "日本酒",
+      "description": "日本の伝統的な醸造酒。米と水から生まれる多彩な味わいと文化を紹介します。",
+      "subTopics": ["種類", "選び方", "銘柄", "飲み方", "ペアリング", "酒蔵", "日本酒度", "温度帯", "初心者向け"],
+      "seasonality": {
+        "peakSeasons": ["正月", "花見", "秋（ひやおろし）"],
+        "notes": "年間通じて需要あり。特に正月・花見シーズンに検索増加。秋はひやおろし関連で需要増。"
+      },
+      "existingArticles": [
+        "types-of-sake",
+        "sake-how-to-drink",
+        "sake-pairing"
+      ],
+      "competitors": [
+        "https://sake-times.com/",
+        "https://www.saketimes.jp/",
+        "https://tanoshiiosake.jp/",
+        "https://sakeidol.com/"
+      ],
+      "priority": "high"
+    },
+    {
+      "id": "whisky",
+      "name": "ウイスキー",
+      "description": "世界五大ウイスキーからジャパニーズウイスキーまで、奥深い蒸留酒の世界を解説します。",
+      "subTopics": ["種類", "飲み方", "銘柄", "ハイボール", "選び方", "蒸留所", "熟成", "初心者向け", "プレゼント"],
+      "seasonality": {
+        "peakSeasons": ["秋", "冬", "父の日"],
+        "notes": "秋冬に需要増。ハイボールは夏にも需要あり。父の日・クリスマスはギフト需要。"
+      },
+      "existingArticles": [
+        "whisky-types",
+        "whisky-highball"
+      ],
+      "competitors": [
+        "https://www.whisky-mag.jp/",
+        "https://whiskymew.com/",
+        "https://www.barrel365.com/"
+      ],
+      "priority": "high"
+    },
+    {
+      "id": "gin",
+      "name": "ジン",
+      "description": "クラフトジンブームで注目のジン。ボタニカルの香りを楽しむ新しい飲み方を紹介します。",
+      "subTopics": ["種類", "飲み方", "クラフトジン", "ジントニック", "銘柄", "カクテル", "選び方", "ボタニカル"],
+      "seasonality": {
+        "peakSeasons": ["春", "夏"],
+        "notes": "春夏にジントニック需要増。クラフトジンは年間通じてトレンド。"
+      },
+      "existingArticles": [
+        "gin-types",
+        "gin-and-tonic"
+      ],
+      "competitors": [
+        "https://www.gin-mag.com/",
+        "https://tanoshiiosake.jp/"
+      ],
+      "priority": "medium"
+    },
+    {
+      "id": "tequila",
+      "name": "テキーラ",
+      "description": "メキシコ生まれの蒸留酒。ショットだけじゃない、テキーラの本当の楽しみ方を紹介します。",
+      "subTopics": ["種類", "飲み方", "銘柄", "カクテル", "選び方", "アガベ", "プレミアムテキーラ"],
+      "seasonality": {
+        "peakSeasons": ["夏", "シンコ・デ・マヨ"],
+        "notes": "夏に需要増。プレミアムテキーラのトレンドで年間通じて検索増加傾向。"
+      },
+      "existingArticles": [
+        "tequila-types"
+      ],
+      "competitors": [
+        "https://tanoshiiosake.jp/",
+        "https://www.likaman.com/"
+      ],
+      "priority": "medium"
+    },
+    {
+      "id": "vodka",
+      "name": "ウォッカ",
+      "description": "クリアな味わいが特徴の蒸留酒。カクテルベースとしても人気のウォッカを紹介します。",
+      "subTopics": ["種類", "飲み方", "銘柄", "カクテル", "選び方", "フレーバーウォッカ"],
+      "seasonality": {
+        "peakSeasons": ["夏", "年末"],
+        "notes": "カクテル需要で夏に増加。年末パーティーシーズンにも需要あり。"
+      },
+      "existingArticles": [],
+      "competitors": [
+        "https://tanoshiiosake.jp/",
+        "https://www.likaman.com/"
+      ],
+      "priority": "low"
+    },
+    {
+      "id": "rum",
+      "name": "ラム",
+      "description": "サトウキビ由来の蒸留酒。カリブの風を感じるラムの種類や飲み方を紹介します。",
+      "subTopics": ["種類", "飲み方", "銘柄", "カクテル", "選び方", "モヒート", "ダイキリ"],
+      "seasonality": {
+        "peakSeasons": ["夏"],
+        "notes": "夏にモヒート・カクテル需要で増加。冬はホットラムの需要も。"
+      },
+      "existingArticles": [],
+      "competitors": [
+        "https://tanoshiiosake.jp/",
+        "https://www.likaman.com/"
+      ],
+      "priority": "low"
+    },
+    {
+      "id": "liqueur",
+      "name": "リキュール",
+      "description": "多彩なフレーバーが魅力のリキュール。カクテルや家飲みを華やかにする楽しみ方を紹介します。",
+      "subTopics": ["種類", "飲み方", "カクテルレシピ", "銘柄", "選び方", "家飲み", "甘いお酒"],
+      "seasonality": {
+        "peakSeasons": ["バレンタイン", "クリスマス", "夏"],
+        "notes": "バレンタイン・クリスマスにギフト需要。夏はカクテル需要で増加。"
+      },
+      "existingArticles": [
+        "liqueur-types"
+      ],
+      "competitors": [
+        "https://tanoshiiosake.jp/",
+        "https://www.likaman.com/",
+        "https://macaro-ni.jp/"
+      ],
+      "priority": "medium"
+    },
+    {
+      "id": "fruit-wine",
+      "name": "果実酒",
+      "description": "フルーツの甘みと香りが楽しめる果実酒。手作りから市販品まで幅広く紹介します。",
+      "subTopics": ["種類", "作り方", "梅酒", "レシピ", "飲み方", "選び方", "おすすめ"],
+      "seasonality": {
+        "peakSeasons": ["梅雨（梅酒作り）", "夏", "秋"],
+        "notes": "6月に梅酒作り需要が急増。夏は冷やして飲む需要。秋は果物の旬。"
+      },
+      "existingArticles": [
+        "fruit-wine-types"
+      ],
+      "competitors": [
+        "https://tanoshiiosake.jp/",
+        "https://cookpad.com/",
+        "https://www.choya.co.jp/"
+      ],
+      "priority": "medium"
+    },
+    {
+      "id": "beer",
+      "name": "ビール",
+      "description": "定番からクラフトビールまで、日本で楽しめるビールの世界を紹介します。",
+      "subTopics": ["種類", "クラフトビール", "飲み方", "銘柄", "選び方", "ブルワリー", "ペアリング", "IPA"],
+      "seasonality": {
+        "peakSeasons": ["夏", "ビアガーデン"],
+        "notes": "夏に需要ピーク。クラフトビールは年間通じてトレンド。ビアガーデンは5-9月。"
+      },
+      "existingArticles": [
+        "beer-types"
+      ],
+      "competitors": [
+        "https://craftbeer-tokyo.info/",
+        "https://tanoshiiosake.jp/",
+        "https://my-best.com/"
+      ],
+      "priority": "high"
+    },
+    {
+      "id": "wine",
+      "name": "ワイン",
+      "description": "赤・白・ロゼ・スパークリングなど、ワインの選び方と楽しみ方を初心者にもわかりやすく紹介します。",
+      "subTopics": ["種類", "選び方", "銘柄", "ペアリング", "産地", "ブドウ品種", "初心者向け", "プレゼント", "ナチュラルワイン"],
+      "seasonality": {
+        "peakSeasons": ["ボジョレー（11月）", "クリスマス", "バレンタイン"],
+        "notes": "11月ボジョレー解禁で需要ピーク。クリスマス・バレンタインにギフト需要。"
+      },
+      "existingArticles": [
+        "wine-types"
+      ],
+      "competitors": [
+        "https://wine-bzr.com/",
+        "https://www.enoteca.co.jp/",
+        "https://vinica.me/",
+        "https://tanoshiiosake.jp/"
+      ],
+      "priority": "high"
+    }
+  ]
+}

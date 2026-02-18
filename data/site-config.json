@@ -1,0 +1,30 @@
+{
+  "site": {
+    "name": "カンパイなび",
+    "url": "https://kanpai-navi.com",
+    "tagline": "お酒が楽しくなるトレンドメディア",
+    "language": "ja",
+    "country": "JP"
+  },
+  "content": {
+    "minWordCount": 3000,
+    "maxWordCount": 8000,
+    "titleMaxLength": 32,
+    "descriptionMaxLength": 120,
+    "minH2Count": 5,
+    "maxH2Count": 8,
+    "minInternalLinks": 3,
+    "minFaqItems": 3,
+    "maxFaqItems": 5
+  },
+  "seo": {
+    "urlPattern": "/{category}/{slug}/",
+    "domain": "kanpai-navi.com",
+    "targetAudience": "20歳以上のお酒好き、初心者〜中級者"
+  },
+  "compliance": {
+    "ageRestriction": 20,
+    "disclaimer": "お酒は20歳になってから。飲酒運転は法律で禁止されています。",
+    "moderationMessage": "適量飲酒を心がけましょう。"
+  }
+}

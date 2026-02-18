@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables
+.env
+.env.local
+
+# Source maps
+*.js.map
+
+# Rankings data (except tracked.json)
+data/rankings/*.json
+!data/rankings/tracked.json
+
+# Output directory (keep .gitkeep)
+output/
+!output/.gitkeep
+!output/articles/.gitkeep
+!output/reports/.gitkeep
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Credentials
+credentials/

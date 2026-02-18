@@ -1,0 +1,133 @@
+{
+  "title": {
+    "maxLength": 32,
+    "mustContain": ["mainKeyword"],
+    "shouldContain": ["emotionalTrigger", "year"],
+    "format": "メインKW＋ベネフィット＋感情トリガー",
+    "examples": [
+      "日本酒の種類ともう迷わない選び方！好みが見つかる新常識【2026年】",
+      "ウイスキーの飲み方10選｜初心者でも楽しめる方法",
+      "ジントニックの作り方｜プロが教える黄金比率とは"
+    ],
+    "avoidPatterns": [
+      "〜とは？だけのタイトル",
+      "キーワードの羅列",
+      "煽りすぎる表現"
+    ]
+  },
+  "description": {
+    "maxLength": 120,
+    "mustContain": ["mainKeyword"],
+    "shouldContain": ["cta", "benefit"],
+    "format": "問題提起→解決→CTA",
+    "examples": [
+      "日本酒の種類が多すぎて選べない？この記事では純米・吟醸など全種類を初心者にもわかりやすく解説。あなたにぴったりの一本が見つかります。"
+    ]
+  },
+  "headings": {
+    "h1": {
+      "count": 1,
+      "mustContainMainKW": true,
+      "notes": "タイトルと同一または類似。メインKWを必ず含む。"
+    },
+    "h2": {
+      "minCount": 5,
+      "maxCount": 8,
+      "shouldContainKW": true,
+      "notes": "サブKWやLSIキーワードを自然に含める。読者の疑問に答える形式が望ましい。"
+    },
+    "h3": {
+      "minPerH2": 0,
+      "maxPerH2": 4,
+      "notes": "H2の内容を具体的に掘り下げる。必須ではないが、長いセクションでは使用推奨。"
+    }
+  },
+  "keywords": {
+    "mainKW": {
+      "inTitle": true,
+      "inFirst100Chars": true,
+      "inH1": true,
+      "inLastParagraph": true,
+      "densityTarget": "1-2%",
+      "notes": "自然な文脈で使用。無理な詰め込みは避ける。"
+    },
+    "subKW": {
+      "inH2": true,
+      "naturalDistribution": true,
+      "densityTarget": "0.5-1%",
+      "notes": "記事全体に均等に分散させる。"
+    },
+    "lsiKeywords": {
+      "usage": "本文中に自然に散りばめる",
+      "notes": "共起語・関連語を適切に使用してトピックの網羅性を高める。"
+    }
+  },
+  "internalLinks": {
+    "minCount": 3,
+    "preferSameCategory": true,
+    "anchorTextRules": "自然な日本語テキスト、KWを含む",
+    "placement": "本文の文脈に沿った場所に配置。まとめセクションにも関連記事リンクを含める。",
+    "avoidPatterns": [
+      "「こちら」だけのアンカーテキスト",
+      "記事冒頭への過剰なリンク",
+      "無関係なカテゴリへのリンク"
+    ]
+  },
+  "images": {
+    "altTextRequired": true,
+    "altTextContainKW": true,
+    "captionRecommended": true,
+    "filenameRules": "英語のスラッグ形式（例：sake-types-junmai.webp）",
+    "formatPreference": ["webp", "jpg", "png"],
+    "notes": "各H2セクションに最低1枚の画像を推奨。"
+  },
+  "schema": {
+    "required": ["Article"],
+    "recommended": ["FAQPage", "HowTo", "BreadcrumbList"],
+    "articleSchema": {
+      "requiredFields": ["headline", "author", "datePublished", "dateModified", "image", "description"],
+      "authorType": "Organization",
+      "publisherName": "カンパイなび"
+    }
+  },
+  "url": {
+    "format": "/{category}/{slug}/",
+    "slugLanguage": "en",
+    "maxLength": 60,
+    "rules": [
+      "英語のスラッグを使用",
+      "ハイフン区切り",
+      "短く意味がわかるもの",
+      "日本語URLは避ける"
+    ]
+  },
+  "contentStructure": {
+    "requiredSections": [
+      "導入（リード文）",
+      "本文（H2×5-8セクション）",
+      "FAQ（よくある質問）",
+      "まとめ"
+    ],
+    "leadParagraph": {
+      "maxLength": 300,
+      "mustContain": ["mainKeyword", "読者の課題", "記事で得られること"],
+      "notes": "最初の100文字以内にメインKWを含める。"
+    },
+    "faq": {
+      "minItems": 3,
+      "maxItems": 5,
+      "format": "質問＋回答形式。FAQPage構造化データに対応。",
+      "notes": "「よくある質問」で検索されるクエリに対応する。"
+    },
+    "summary": {
+      "mustContain": ["mainKeyword", "記事の要点", "次のアクション"],
+      "notes": "読者に次に何をすべきか明確に伝える。"
+    }
+  },
+  "eeatSignals": {
+    "expertise": "専門用語の適切な説明、具体的なデータや数値の引用",
+    "experience": "実際の体験に基づく表現、具体的な味や香りの描写",
+    "authoritativeness": "信頼できるソースの引用、業界データの参照",
+    "trustworthiness": "正確な情報、法令遵守（20歳未満の飲酒禁止等）、適量飲酒の推奨"
+  }
+}

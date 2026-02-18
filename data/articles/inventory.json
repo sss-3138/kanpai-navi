@@ -1,0 +1,125 @@
+{
+  "lastUpdated": "2026-02-18",
+  "articles": [
+    {
+      "title": "日本酒の種類ともう迷わない選び方！好みが見つかる新常識【2025年】",
+      "slug": "types-of-sake",
+      "category": "sake",
+      "url": "/sake/types-of-sake/",
+      "publishedDate": "2025-11-28",
+      "status": "published",
+      "mainKeyword": "日本酒 種類",
+      "lastUpdated": "2025-11-28"
+    },
+    {
+      "title": "日本酒の飲み方ガイド｜温度・器・シーンで変わる楽しみ方",
+      "slug": "sake-how-to-drink",
+      "category": "sake",
+      "url": "/sake/sake-how-to-drink/",
+      "publishedDate": "2025-12-05",
+      "status": "published",
+      "mainKeyword": "日本酒 飲み方",
+      "lastUpdated": "2025-12-05"
+    },
+    {
+      "title": "日本酒に合うおつまみ完全ガイド｜タイプ別ペアリングの極意",
+      "slug": "sake-pairing",
+      "category": "sake",
+      "url": "/sake/sake-pairing/",
+      "publishedDate": "2025-12-12",
+      "status": "published",
+      "mainKeyword": "日本酒 おつまみ",
+      "lastUpdated": "2025-12-12"
+    },
+    {
+      "title": "ウイスキーの種類を徹底解説！世界5大ウイスキーの特徴と違い",
+      "slug": "whisky-types",
+      "category": "whisky",
+      "url": "/whisky/whisky-types/",
+      "publishedDate": "2025-12-20",
+      "status": "published",
+      "mainKeyword": "ウイスキー 種類",
+      "lastUpdated": "2025-12-20"
+    },
+    {
+      "title": "ハイボールの作り方｜プロが教える黄金比率と絶品アレンジ",
+      "slug": "whisky-highball",
+      "category": "whisky",
+      "url": "/whisky/whisky-highball/",
+      "publishedDate": "2026-01-10",
+      "status": "published",
+      "mainKeyword": "ハイボール 作り方",
+      "lastUpdated": "2026-01-10"
+    },
+    {
+      "title": "ジンの種類と選び方｜ロンドンドライからクラフトジンまで",
+      "slug": "gin-types",
+      "category": "gin",
+      "url": "/gin/gin-types/",
+      "publishedDate": "2026-01-15",
+      "status": "published",
+      "mainKeyword": "ジン 種類",
+      "lastUpdated": "2026-01-15"
+    },
+    {
+      "title": "ジントニックの作り方｜自宅で本格バーの味を再現するコツ",
+      "slug": "gin-and-tonic",
+      "category": "gin",
+      "url": "/gin/gin-and-tonic/",
+      "publishedDate": "2026-01-20",
+      "status": "published",
+      "mainKeyword": "ジントニック 作り方",
+      "lastUpdated": "2026-01-20"
+    },
+    {
+      "title": "テキーラの種類と楽しみ方｜ショットだけじゃないプレミアムな世界",
+      "slug": "tequila-types",
+      "category": "tequila",
+      "url": "/tequila/tequila-types/",
+      "publishedDate": "2026-01-25",
+      "status": "published",
+      "mainKeyword": "テキーラ 種類",
+      "lastUpdated": "2026-01-25"
+    },
+    {
+      "title": "リキュールの種類完全ガイド｜甘くて美味しいお酒の世界",
+      "slug": "liqueur-types",
+      "category": "liqueur",
+      "url": "/liqueur/liqueur-types/",
+      "publishedDate": "2026-01-30",
+      "status": "published",
+      "mainKeyword": "リキュール 種類",
+      "lastUpdated": "2026-01-30"
+    },
+    {
+      "title": "果実酒の種類と楽しみ方｜梅酒から手作りレシピまで",
+      "slug": "fruit-wine-types",
+      "category": "fruit-wine",
+      "url": "/fruit-wine/fruit-wine-types/",
+      "publishedDate": "2026-02-01",
+      "status": "published",
+      "mainKeyword": "果実酒 種類",
+      "lastUpdated": "2026-02-01"
+    },
+    {
+      "title": "ビールの種類を完全解説｜エール・ラガーの違いから人気スタイルまで",
+      "slug": "beer-types",
+      "category": "beer",
+      "url": "/beer/beer-types/",
+      "publishedDate": "2026-02-05",
+      "status": "published",
+      "mainKeyword": "ビール 種類",
+      "lastUpdated": "2026-02-05"
+    },
+    {
+      "title": "ワインの種類と選び方｜初心者でも失敗しない基礎知識",
+      "slug": "wine-types",
+      "category": "wine",
+      "url": "/wine/wine-types/",
+      "publishedDate": "2026-02-10",
+      "status": "published",
+      "mainKeyword": "ワイン 種類",
+      "lastUpdated": "2026-02-10"
+    }
+  ]
+}

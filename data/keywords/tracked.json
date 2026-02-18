@@ -1,0 +1,305 @@
+{
+  "lastUpdated": "2026-02-18",
+  "keywords": [
+    {
+      "keyword": "日本酒 種類",
+      "category": "sake",
+      "targetUrl": "/sake/types-of-sake/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "既存記事あり。主力キーワード。"
+    },
+    {
+      "keyword": "日本酒 飲み方",
+      "category": "sake",
+      "targetUrl": "/sake/sake-how-to-drink/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "既存記事あり"
+    },
+    {
+      "keyword": "日本酒 おつまみ",
+      "category": "sake",
+      "targetUrl": "/sake/sake-pairing/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "既存記事あり。ペアリング系。"
+    },
+    {
+      "keyword": "日本酒 選び方",
+      "category": "sake",
+      "targetUrl": "/sake/types-of-sake/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "types-of-sake記事でカバー"
+    },
+    {
+      "keyword": "ウイスキー 種類",
+      "category": "whisky",
+      "targetUrl": "/whisky/whisky-types/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "既存記事あり"
+    },
+    {
+      "keyword": "ハイボール 作り方",
+      "category": "whisky",
+      "targetUrl": "/whisky/whisky-highball/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "既存記事あり。検索ボリューム大。"
+    },
+    {
+      "keyword": "ウイスキー 飲み方",
+      "category": "whisky",
+      "targetUrl": "/whisky/whisky-types/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "関連記事で対応"
+    },
+    {
+      "keyword": "ジン 種類",
+      "category": "gin",
+      "targetUrl": "/gin/gin-types/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "既存記事あり"
+    },
+    {
+      "keyword": "ジントニック 作り方",
+      "category": "gin",
+      "targetUrl": "/gin/gin-and-tonic/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "既存記事あり"
+    },
+    {
+      "keyword": "クラフトジン おすすめ",
+      "category": "gin",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補。トレンドKW。"
+    },
+    {
+      "keyword": "テキーラ 種類",
+      "category": "tequila",
+      "targetUrl": "/tequila/tequila-types/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "既存記事あり"
+    },
+    {
+      "keyword": "テキーラ 飲み方",
+      "category": "tequila",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補"
+    },
+    {
+      "keyword": "リキュール 種類",
+      "category": "liqueur",
+      "targetUrl": "/liqueur/liqueur-types/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "既存記事あり"
+    },
+    {
+      "keyword": "リキュール おすすめ",
+      "category": "liqueur",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補"
+    },
+    {
+      "keyword": "果実酒 種類",
+      "category": "fruit-wine",
+      "targetUrl": "/fruit-wine/fruit-wine-types/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "既存記事あり"
+    },
+    {
+      "keyword": "梅酒 作り方",
+      "category": "fruit-wine",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補。6月に需要ピーク。"
+    },
+    {
+      "keyword": "ビール 種類",
+      "category": "beer",
+      "targetUrl": "/beer/beer-types/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "既存記事あり"
+    },
+    {
+      "keyword": "クラフトビール おすすめ",
+      "category": "beer",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補。トレンドKW。"
+    },
+    {
+      "keyword": "IPA ビール おすすめ",
+      "category": "beer",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補"
+    },
+    {
+      "keyword": "ワイン 種類",
+      "category": "wine",
+      "targetUrl": "/wine/wine-types/",
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "既存記事あり"
+    },
+    {
+      "keyword": "ワイン 選び方 初心者",
+      "category": "wine",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補。初心者向け。"
+    },
+    {
+      "keyword": "赤ワイン おすすめ",
+      "category": "wine",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補。高ボリューム予想。"
+    },
+    {
+      "keyword": "ウォッカ 飲み方",
+      "category": "vodka",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補"
+    },
+    {
+      "keyword": "ラム酒 おすすめ",
+      "category": "rum",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補"
+    },
+    {
+      "keyword": "日本酒 初心者 おすすめ",
+      "category": "sake",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補。初心者向けが主ターゲット。"
+    },
+    {
+      "keyword": "ジャパニーズウイスキー おすすめ",
+      "category": "whisky",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補。国産ウイスキーブーム。"
+    },
+    {
+      "keyword": "お酒 プレゼント おすすめ",
+      "category": "whisky",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補。クロスカテゴリ。ギフト需要。"
+    },
+    {
+      "keyword": "家飲み おつまみ 簡単",
+      "category": "sake",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補。家飲みトレンド。"
+    },
+    {
+      "keyword": "ナチュラルワイン おすすめ",
+      "category": "wine",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補。トレンドKW。"
+    },
+    {
+      "keyword": "モヒート 作り方",
+      "category": "rum",
+      "targetUrl": null,
+      "currentRank": null,
+      "previousRank": null,
+      "bestRank": null,
+      "searchVolume": null,
+      "notes": "新規記事候補。夏に需要増。"
+    }
+  ]
+}
