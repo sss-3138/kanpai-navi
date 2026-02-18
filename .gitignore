@@ -27,5 +27,8 @@ output/
 # Logs
 *.log
 
-# Credentials
+# Credentials & secrets
 credentials/
+*-service-account.json
+*.pem
+*.key
