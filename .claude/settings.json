@@ -10,41 +10,24 @@
   },
   "mcpServers": {
     "search-console": {
-      "command": "node",
-      "args": ["mcp/search-console/dist/index.js"],
-      "env": {
-        "GSC_SERVICE_ACCOUNT_PATH": "",
-        "GSC_SITE_URL": "https://kanpai-navi.com"
-      }
+      "command": "bash",
+      "args": ["scripts/run-mcp.sh", "mcp/search-console/dist/index.js"]
     },
     "serp-tracker": {
-      "command": "node",
-      "args": ["mcp/serp-tracker/dist/index.js"],
-      "env": {
-        "SERP_API_KEY": ""
-      }
+      "command": "bash",
+      "args": ["scripts/run-mcp.sh", "mcp/serp-tracker/dist/index.js"]
     },
     "keyword-research": {
-      "command": "node",
-      "args": ["mcp/keyword-research/dist/index.js"],
-      "env": {
-        "KEYWORD_API_KEY": ""
-      }
+      "command": "bash",
+      "args": ["scripts/run-mcp.sh", "mcp/keyword-research/dist/index.js"]
     },
     "google-analytics": {
-      "command": "node",
-      "args": ["mcp/google-analytics/dist/index.js"],
-      "env": {
-        "GA_SERVICE_ACCOUNT_PATH": "",
-        "GA_PROPERTY_ID": ""
-      }
+      "command": "bash",
+      "args": ["scripts/run-mcp.sh", "mcp/google-analytics/dist/index.js"]
     },
     "ahrefs": {
-      "command": "node",
-      "args": ["mcp/ahrefs/dist/index.js"],
-      "env": {
-        "AHREFS_API_TOKEN": ""
-      }
+      "command": "bash",
+      "args": ["scripts/run-mcp.sh", "mcp/ahrefs/dist/index.js"]
     }
   }
 }

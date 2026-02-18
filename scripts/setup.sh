@@ -15,7 +15,7 @@ echo "========================================"
 echo ""
 
 # ----- 1. Check Node.js version -----
-echo "[1/6] Node.js バージョンを確認中..."
+echo "[1/7] Node.js バージョンを確認中..."
 if ! command -v node &> /dev/null; then
   echo "  ERROR: Node.js がインストールされていません。"
   echo "  Node.js v18以上をインストールしてください: https://nodejs.org/"
@@ -31,15 +31,15 @@ echo "  OK: Node.js $(node -v)"
 
 # ----- 2. Install root dependencies -----
 echo ""
-echo "[2/6] ルート依存パッケージをインストール中..."
+echo "[2/7] ルート依存パッケージをインストール中..."
 npm install
 echo "  OK: ルート依存パッケージをインストールしました。"
 
 # ----- 3. Install MCP server dependencies -----
 echo ""
-echo "[3/6] MCPサーバーの依存パッケージをインストール中..."
+echo "[3/7] MCPサーバーの依存パッケージをインストール中..."
 
-MCP_DIRS=("mcp/search-console" "mcp/serp-tracker" "mcp/keyword-research")
+MCP_DIRS=("mcp/search-console" "mcp/serp-tracker" "mcp/keyword-research" "mcp/google-analytics" "mcp/ahrefs")
 for dir in "${MCP_DIRS[@]}"; do
   if [ -d "$dir" ] && [ -f "$dir/package.json" ]; then
     echo "  Installing: $dir"
@@ -52,7 +52,7 @@ echo "  OK: MCPサーバーの依存パッケージをインストールしま�
 
 # ----- 4. Build MCP servers -----
 echo ""
-echo "[4/6] MCPサーバーをビルド中..."
+echo "[4/7] MCPサーバーをビルド中..."
 for dir in "${MCP_DIRS[@]}"; do
   if [ -d "$dir" ] && [ -f "$dir/package.json" ]; then
     echo "  Building: $dir"
@@ -63,7 +63,7 @@ echo "  OK: MCPサーバーのビルドが完了しました。"
 
 # ----- 5. Create .env from .env.example -----
 echo ""
-echo "[5/6] 環境変数ファイルを確認中..."
+echo "[5/7] 環境変数ファイルを確認中..."
 if [ ! -f ".env" ]; then
   if [ -f ".env.example" ]; then
     cp .env.example .env
@@ -76,9 +76,19 @@ else
   echo "  OK: .env は既に存在します。"
 fi
 
-# ----- 6. Create necessary data directories -----
+# ----- 6. Install pre-commit hook -----
 echo ""
-echo "[6/6] データディレクトリを作成中..."
+echo "[6/7] pre-commit フックを設定中..."
+if [ -f "scripts/check-secrets.sh" ]; then
+  ln -sf ../../scripts/check-secrets.sh .git/hooks/pre-commit
+  echo "  OK: シークレット検出フックを設定しました。"
+else
+  echo "  SKIP: scripts/check-secrets.sh が見つかりません。"
+fi
+
+# ----- 7. Create necessary data directories -----
+echo ""
+echo "[7/7] データディレクトリを作成中..."
 
 DIRS=(
   "data/articles"

@@ -154,11 +154,38 @@ kanpai-navi/
 - 医学的な効能を断定しない（「〜と言われています」等の表現）
 - 法令遵守（酒税法・景品表示法等）
 
+## チーム向けセットアップ
+
+新しいメンバーがリポジトリをクローンした後、以下を実行する:
+
+```bash
+bash scripts/setup.sh     # 依存パッケージ・ビルド・.env 生成・pre-commitフック設定を一括実行
+vi .env                    # APIキーを設定
+```
+
+セットアップスクリプトが行うこと:
+1. Node.js バージョン確認
+2. npm install（ルート＋全MCPサーバー）
+3. MCPサーバーのビルド（TypeScript → JavaScript）
+4. `.env.example` → `.env` のコピー
+5. pre-commit フック設定（シークレット検出）
+6. データディレクトリ作成
+
 ## セキュリティ（APIキー・認証情報の管理）
 
-- **APIキーやトークンは `.env` ファイルに設定する**（`.env` は `.gitignore` で除外済み）
-- `.claude/settings.json` の `env` フィールドは**空文字のまま維持する**（Git管理下のため）
+### 仕組み
+
+MCPサーバーは `scripts/run-mcp.sh` ラッパー経由で起動され、`.env` を自動読み込みする。
+これにより `.claude/settings.json` にAPIキーを書く必要がなく、Git管理下のファイルにシークレットが混入しない。
+
+```
+.claude/settings.json (Git管理) → scripts/run-mcp.sh → .env を読み込み → MCP サーバー起動
+```
+
+### ルール
+
+- **APIキーやトークンは `.env` ファイルにのみ設定する**（`.env` は `.gitignore` で除外済み）
+- `.claude/settings.json` には**シークレットを絶対に書かない**（Git管理下のため）
 - サービスアカウントJSONキーは `credentials/` ディレクトリに配置する（Git除外済み）
 - `.env.example` にはプレースホルダー値のみを記載する（実際のキーは記載しない）
-- `scripts/check-secrets.sh` がpre-commitフックとして設定されており、誤ったキーのコミットを検出してブロックする
-- セットアップ手順: `cp .env.example .env` → `.env` に実際のキーを記入
+- `scripts/check-secrets.sh` が pre-commit フックとして機能し、誤ったキーのコミットを検出してブロックする
