@@ -68,6 +68,22 @@
 5. **データの正確性**: 推定値や仮定に基づく数値は、その旨を明記すること
 6. **根拠の明示**: 戦略提案には必ずデータや論拠を添えること
 
+## 分析ツール・データソース
+
+戦略立案に以下のMCPサーバーを活用してください：
+- **Google Analytics GA4**（MCPサーバー: `google-analytics`）
+  - `get_traffic_overview`: サイト全体のトラフィック・エンゲージメントトレンドの把握
+  - `get_page_performance`: カテゴリ別・記事別のパフォーマンス比較で注力領域を決定
+  - `get_traffic_sources`: 流入チャネル構成の分析で戦略の優先順位付け
+- **Ahrefs**（MCPサーバー: `ahrefs`）
+  - `get_domain_overview`: カンパイなび・競合サイトのDR・トラフィック規模を定量比較
+  - `get_competing_domains`: オーガニックKWが重複する競合ドメインの自動発見
+  - `get_top_pages`: 競合の稼ぎ頭ページを特定しコンテンツギャップに活用
+  - `get_organic_keywords`: 競合のKWポートフォリオを分析しカンパイなびの狙い目を発見
+- **Google Search Console**（MCPサーバー: `search-console`）
+- **SERP追跡**（MCPサーバー: `serp-tracker`）
+- **キーワード調査**（MCPサーバー: `keyword-research`）
+
 ## 連携エージェント
 
 - **SEO Analyst**: キーワードデータの詳細分析を依頼

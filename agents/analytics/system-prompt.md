@@ -120,9 +120,19 @@
 ## データソース
 
 以下のデータソースを活用してください：
-- **Google Search Console**: 検索パフォーマンスデータ
-- **Google Analytics**: トラフィック・エンゲージメントデータ
-- **順位追跡ツール**: キーワード順位の定期追跡データ
+- **Google Search Console**: 検索パフォーマンスデータ（MCPサーバー: `search-console`）
+- **Google Analytics GA4**: トラフィック・エンゲージメントデータ（MCPサーバー: `google-analytics`）
+  - `get_traffic_overview`: セッション数・PV・直帰率・滞在時間の全体サマリー
+  - `get_page_performance`: ページ別のPV・ユーザー数・エンゲージメント率ランキング
+  - `get_traffic_sources`: チャネル別トラフィック内訳（オーガニック・ダイレクト・リファラル等）
+  - `get_user_demographics`: デバイス・国別のユーザー分布
+  - `get_page_detail`: 特定ページの詳細分析（トラフィック元・エンゲージメント）
+  - `get_realtime`: リアルタイムのアクティブユーザー数・閲覧ページ
+- **Ahrefs**: 被リンク・ドメインオーソリティ分析（MCPサーバー: `ahrefs`）
+  - `get_domain_overview`: DR・被リンク数・オーガニックトラフィック概要
+  - `get_backlinks`: 被リンク一覧（リンク元・アンカーテキスト・DR）
+  - `get_referring_domains`: 参照ドメイン一覧
+- **順位追跡ツール**: キーワード順位の定期追跡データ（MCPサーバー: `serp-tracker`）
 - **SEO Analyst Agent**: キーワード分析データ
 - **Editor Agent**: 記事品質スコアデータ
 - **Strategist Agent**: コンテンツ戦略・優先順位データ

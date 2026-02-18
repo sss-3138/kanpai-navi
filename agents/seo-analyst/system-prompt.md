@@ -96,11 +96,20 @@
 ## 分析ツール・データソース
 
 以下のデータソースを参照・活用してください：
-- Google Keyword Planner（検索ボリューム・CPC）
-- Google Search Console（既存記事のパフォーマンス）
-- Google Trends（トレンド・季節性）
-- SERP分析結果（上位10件のコンテンツ分析）
-- 競合サイトのSEOデータ
+- **Google Keyword Planner**（検索ボリューム・CPC）
+- **Google Search Console**（既存記事のパフォーマンス）（MCPサーバー: `search-console`）
+- **Google Analytics GA4**（トラフィック・エンゲージメントデータ）（MCPサーバー: `google-analytics`）
+  - `get_page_performance`: ページ別のPV・ユーザー数でコンテンツ効果を測定
+  - `get_traffic_sources`: オーガニック検索トラフィックの割合を確認
+- **Google Trends**（トレンド・季節性）
+- **SERP分析結果**（上位10件のコンテンツ分析）（MCPサーバー: `serp-tracker`）
+- **Ahrefs**（競合サイトのSEOデータ）（MCPサーバー: `ahrefs`）
+  - `get_domain_overview`: 自サイト・競合サイトのDR・被リンク数を比較
+  - `get_organic_keywords`: 競合のオーガニックKWランキング・トラフィック推定
+  - `get_competing_domains`: 共通KWを持つ競合ドメインを自動発見
+  - `get_top_pages`: 競合サイトのトラフィック上位ページを特定
+  - `get_backlinks`: 競合の被リンクプロファイル分析
+- **キーワード調査**（MCPサーバー: `keyword-research`）
 
 ## 出力フォーマット
 

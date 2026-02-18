@@ -27,6 +27,18 @@
 - `data/rankings/` ディレクトリから対象月の順位データを全て読み込む
 - 月初と月末の順位を比較し、月間の変動を集計する
 
+#### Google Analytics GA4 データ
+- MCPサーバー `google-analytics` を使用してトラフィックデータを取得する:
+  - `get_traffic_overview`: 対象月のセッション数・PV・直帰率・エンゲージメント率
+  - `get_page_performance`: ページ別PV・ユーザー数ランキング
+  - `get_traffic_sources`: チャネル別トラフィック内訳（オーガニック比率の確認）
+  - `get_user_demographics`: デバイス別・国別ユーザー分布
+
+#### Ahrefs データ
+- MCPサーバー `ahrefs` を使用して被リンク・DR推移を取得する:
+  - `get_domain_overview`: カンパイなびのDR・被リンク数・オーガニックトラフィック推定
+  - `get_referring_domains`: 新規獲得した参照ドメイン
+
 #### 記事データ
 - `data/articles/` から対象月に公開・更新された記事を特定する
 - 各記事のメタデータ（カテゴリ、キーワード、公開日等）を収集する

@@ -3,7 +3,9 @@
     "allow": [
       "mcp__search-console__*",
       "mcp__serp-tracker__*",
-      "mcp__keyword-research__*"
+      "mcp__keyword-research__*",
+      "mcp__google-analytics__*",
+      "mcp__ahrefs__*"
     ]
   },
   "mcpServers": {
@@ -27,6 +29,21 @@
       "args": ["mcp/keyword-research/dist/index.js"],
       "env": {
         "KEYWORD_API_KEY": ""
+      }
+    },
+    "google-analytics": {
+      "command": "node",
+      "args": ["mcp/google-analytics/dist/index.js"],
+      "env": {
+        "GA_SERVICE_ACCOUNT_PATH": "",
+        "GA_PROPERTY_ID": ""
+      }
+    },
+    "ahrefs": {
+      "command": "node",
+      "args": ["mcp/ahrefs/dist/index.js"],
+      "env": {
+        "AHREFS_API_TOKEN": ""
       }
     }
   }

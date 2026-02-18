@@ -83,6 +83,8 @@
 | search-console | Google Search Console API連携 | `mcp/search-console/` |
 | serp-tracker | SERP順位追跡 | `mcp/serp-tracker/` |
 | keyword-research | キーワード調査・関連語取得 | `mcp/keyword-research/` |
+| google-analytics | Google Analytics GA4 トラフィック・エンゲージメント分析 | `mcp/google-analytics/` |
+| ahrefs | Ahrefs 被リンク・DR・競合ドメイン分析 | `mcp/ahrefs/` |
 
 ## ディレクトリ構造
 
@@ -110,7 +112,9 @@ kanpai-navi/
 ├── mcp/                         # MCPサーバー
 │   ├── search-console/          # Google Search Console
 │   ├── serp-tracker/            # SERP追跡
-│   └── keyword-research/        # キーワード調査
+│   ├── keyword-research/        # キーワード調査
+│   ├── google-analytics/        # Google Analytics GA4
+│   └── ahrefs/                  # Ahrefs API
 ├── tools/                       # ユーティリティツール
 ├── data/                        # データファイル
 │   ├── site-config.json         # サイト設定
