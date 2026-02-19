@@ -28,29 +28,39 @@
 
 ## Agent Team 構成
 
-本プロジェクトでは5つの専門エージェントがチームとして連携する。
+本プロジェクトでは7つの専門エージェントがチームとして連携する。
 
 ### 1. Strategist (戦略家エージェント)
 - **役割**: 市場分析・競合調査・コンテンツ戦略立案
 - **プロンプト**: `agents/strategist/system-prompt.md`
 - **起動コマンド**: `/strategy`, `/content-calendar`, `/competitor-analysis`
 
-### 2. Writer (ライターエージェント)
+### 2. SEO Analyst (SEO分析エージェント)
+- **役割**: キーワード調査・オンページSEO・検索意図分析・コンテンツギャップ分析・カニバリゼーション検出・E-E-A-T評価
+- **プロンプト**: `agents/seo-analyst/system-prompt.md`
+- **起動コマンド**: `/keyword-research`, `/content-gap`
+
+### 3. Technical SEO Auditor (テクニカルSEO監査エージェント)
+- **役割**: クロール・インデックス監査・Core Web Vitals・構造化データ検証・サイトマップ管理
+- **プロンプト**: `agents/technical-auditor/system-prompt.md`
+- **起動コマンド**: `/technical-audit`
+
+### 4. Link Analyst (被リンク分析エージェント)
+- **役割**: 被リンクプロファイル分析・競合リンクギャップ・リンク獲得戦略・営業支援
+- **プロンプト**: `agents/link-analyst/system-prompt.md`
+- **起動コマンド**: `/backlink-analysis`
+
+### 5. Writer (ライターエージェント)
 - **役割**: SEO最適化された記事の執筆
 - **プロンプト**: `agents/writer/system-prompt.md`
 - **起動コマンド**: `/write-article`
 
-### 3. Editor (編集者エージェント)
+### 6. Editor (編集者エージェント)
 - **役割**: 記事レビュー・品質チェック・改善提案
 - **プロンプト**: `agents/editor/system-prompt.md`
 - **起動コマンド**: `/edit-article`
 
-### 4. SEO Analyst (SEO分析エージェント)
-- **役割**: キーワード調査・オンページSEO・内部リンク最適化
-- **プロンプト**: `agents/seo-analyst/system-prompt.md`
-- **起動コマンド**: `/keyword-research`
-
-### 5. Analytics Reporter (分析レポーターエージェント)
+### 7. Analytics Reporter (分析レポーターエージェント)
 - **役割**: 順位計測・パフォーマンス分析・月次レポート
 - **プロンプト**: `agents/analytics/system-prompt.md`
 - **起動コマンド**: `/check-rankings`, `/monthly-report`
@@ -62,17 +72,27 @@
 ```
 /full-pipeline で一括実行可能
 
-[1. 戦略立案] → [2. キーワード調査] → [3. 記事執筆] → [4. 編集・レビュー] → [5. 最終出力]
- Strategist      SEO Analyst        Writer           Editor            全エージェント
+[1. 戦略立案] → [2. KW調査+ギャップ分析] → [3. 記事執筆] → [4. 編集・レビュー] → [5. 最終出力]
+ Strategist      SEO Analyst             Writer           Editor            全エージェント
+```
+
+### SEO改善パイプライン
+
+```
+[1. テクニカル監査] → [2. コンテンツギャップ] → [3. 被リンク分析] → [4. 改善実施] → [5. 効果計測]
+ Technical Auditor    SEO Analyst            Link Analyst      Writer/Editor   Analytics Reporter
 ```
 
 ### 個別ワークフロー
 
 1. **戦略フェーズ**: `/strategy` → 市場分析 → コンテンツ方針決定
 2. **調査フェーズ**: `/keyword-research` → KW調査 → 記事ブリーフ作成
-3. **執筆フェーズ**: `/write-article` → 記事ドラフト作成
-4. **編集フェーズ**: `/edit-article` → 品質レビュー → 改善
-5. **計測フェーズ**: `/check-rankings` → 順位チェック → レポート
+3. **ギャップ分析**: `/content-gap` → コンテンツギャップ・カニバリ検出
+4. **執筆フェーズ**: `/write-article` → 記事ドラフト作成
+5. **編集フェーズ**: `/edit-article` → 品質レビュー → 改善
+6. **テクニカル監査**: `/technical-audit` → クロール・インデックス・CWV・構造化データ
+7. **被リンク分析**: `/backlink-analysis` → 被リンク現状分析・競合ギャップ・営業支援
+8. **計測フェーズ**: `/check-rankings` → 順位チェック → レポート
 
 ## MCP サーバー
 
@@ -96,8 +116,11 @@ kanpai-navi/
 │   └── commands/                # カスタムスラッシュコマンド
 │       ├── strategy.md          # /strategy
 │       ├── keyword-research.md  # /keyword-research
+│       ├── content-gap.md       # /content-gap
 │       ├── write-article.md     # /write-article
 │       ├── edit-article.md      # /edit-article
+│       ├── technical-audit.md   # /technical-audit
+│       ├── backlink-analysis.md # /backlink-analysis
 │       ├── check-rankings.md    # /check-rankings
 │       ├── content-calendar.md  # /content-calendar
 │       ├── competitor-analysis.md # /competitor-analysis
@@ -105,9 +128,11 @@ kanpai-navi/
 │       └── full-pipeline.md     # /full-pipeline
 ├── agents/                      # エージェント定義
 │   ├── strategist/              # 戦略家エージェント
+│   ├── seo-analyst/             # SEO分析エージェント（コンテンツSEO+オンページSEO）
+│   ├── technical-auditor/       # テクニカルSEO監査エージェント
+│   ├── link-analyst/            # 被リンク分析エージェント（オフページSEO）
 │   ├── writer/                  # ライターエージェント
 │   ├── editor/                  # 編集者エージェント
-│   ├── seo-analyst/             # SEO分析エージェント
 │   └── analytics/               # 分析レポーターエージェント
 ├── mcp/                         # MCPサーバー
 │   ├── search-console/          # Google Search Console
