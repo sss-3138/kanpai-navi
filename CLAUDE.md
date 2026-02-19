@@ -53,7 +53,7 @@
 ### 5. Writer (ライターエージェント)
 - **役割**: SEO最適化された記事の執筆
 - **プロンプト**: `agents/writer/system-prompt.md`
-- **起動コマンド**: `/write-article`
+- **起動コマンド**: `/research`, `/create-outline`, `/write-article`, `/swell-format`
 
 ### 6. Editor (編集者エージェント)
 - **役割**: 記事レビュー・品質チェック・改善提案
@@ -71,14 +71,26 @@
 
 ```
 /full-pipeline で一括実行可能
+各ステップは個別コマンドでも実行可能
 
 [1. ペルソナ分析] → [2. SERPs調査] → [3. 関連KW取得] → [4. 構成作成] → [5. 構成レビュー]
-     Writer        SEO Analyst     SEO Analyst       Writer          Editor
+     /research（Step 1-3 を一括実行）        /create-outline    /edit-article
         ↓                                                         NG → Step 4 に戻る
 [6. 執筆リサーチ] → [7. 記事執筆] → [8. 記事レビュー] → [9. SWELL装飾] → [10. WP入稿]
-     Writer            Writer          Editor            Writer          Writer
+     /write-article（Step 6-7 を実行）    /edit-article     /swell-format   /publish-draft
                                     NG → 修正 → 再レビュー
 ```
+
+### 個別コマンドとステップの対応
+
+| コマンド | 対応ステップ | 内容 |
+|---------|------------|------|
+| `/research` | Step 1-3 | ペルソナ分析 + SERPs調査 + 関連KW取得 |
+| `/create-outline` | Step 4 | リサーチ結果を元に記事構成を作成 |
+| `/edit-article` | Step 5 / 8 | 構成レビュー or 記事レビュー（自動判定） |
+| `/write-article` | Step 6-7 | 執筆リサーチ + 記事本文の執筆 |
+| `/swell-format` | Step 9 | SWELLテーマのブロック装飾HTML変換 |
+| `/publish-draft` | Step 10 | WordPress REST APIで下書き投稿 |
 
 ### 各ステップの詳細
 
@@ -104,15 +116,22 @@
 
 ### 個別ワークフロー
 
-1. **戦略フェーズ**: `/strategy` → 市場分析 → コンテンツ方針決定
-2. **調査フェーズ**: `/keyword-research` → KW調査 → 記事ブリーフ作成
-3. **ギャップ分析**: `/content-gap` → コンテンツギャップ・カニバリ検出
-4. **執筆フェーズ**: `/write-article` → 10ステップパイプラインの実行
-5. **編集フェーズ**: `/edit-article` → 構成レビュー or 記事レビュー
-6. **テクニカル監査**: `/technical-audit` → クロール・インデックス・CWV・構造化データ
-7. **被リンク分析**: `/backlink-analysis` → 被リンク現状分析・競合ギャップ・営業支援
-8. **計測フェーズ**: `/check-rankings` → 順位チェック → レポート
-9. **入稿**: `/publish-draft` → SWELL装飾済みHTMLをWordPressに下書き投稿
+#### 記事作成（個別ステップ実行）
+1. **リサーチ**: `/research [KW]` → ペルソナ分析 + SERPs調査 + 関連KW取得
+2. **構成作成**: `/create-outline [category]-[slug]` → リサーチ結果を元に構成作成
+3. **構成レビュー**: `/edit-article [outline.md]` → 構成の品質チェック
+4. **記事執筆**: `/write-article [outline.md]` → 執筆リサーチ + 記事本文の執筆
+5. **記事レビュー**: `/edit-article [draft.md]` → 記事の品質チェック
+6. **SWELL装飾**: `/swell-format [draft.md]` → SWELLブロック形式HTMLに変換
+7. **入稿**: `/publish-draft [swell.html]` → WordPressに下書き投稿
+
+#### その他
+8. **戦略フェーズ**: `/strategy` → 市場分析 → コンテンツ方針決定
+9. **KW調査**: `/keyword-research` → KW調査 → 記事ブリーフ作成
+10. **ギャップ分析**: `/content-gap` → コンテンツギャップ・カニバリ検出
+11. **テクニカル監査**: `/technical-audit` → クロール・インデックス・CWV・構造化データ
+12. **被リンク分析**: `/backlink-analysis` → 被リンク現状分析・競合ギャップ・営業支援
+13. **計測フェーズ**: `/check-rankings` → 順位チェック → レポート
 
 ## MCP サーバー
 
@@ -137,16 +156,19 @@ kanpai-navi/
 │       ├── strategy.md          # /strategy
 │       ├── keyword-research.md  # /keyword-research
 │       ├── content-gap.md       # /content-gap
-│       ├── write-article.md     # /write-article
-│       ├── edit-article.md      # /edit-article
+│       ├── research.md          # /research (Step 1-3)
+│       ├── create-outline.md    # /create-outline (Step 4)
+│       ├── write-article.md     # /write-article (Step 6-7)
+│       ├── edit-article.md      # /edit-article (Step 5/8)
+│       ├── swell-format.md      # /swell-format (Step 9)
+│       ├── publish-draft.md     # /publish-draft (Step 10)
+│       ├── full-pipeline.md     # /full-pipeline (Step 1-10 一括)
 │       ├── technical-audit.md   # /technical-audit
 │       ├── backlink-analysis.md # /backlink-analysis
 │       ├── check-rankings.md    # /check-rankings
 │       ├── content-calendar.md  # /content-calendar
 │       ├── competitor-analysis.md # /competitor-analysis
-│       ├── monthly-report.md    # /monthly-report
-│       ├── full-pipeline.md     # /full-pipeline
-│       └── publish-draft.md     # /publish-draft
+│       └── monthly-report.md    # /monthly-report
 ├── agents/                      # エージェント定義
 │   ├── strategist/              # 戦略家エージェント
 │   ├── seo-analyst/             # SEO分析エージェント（コンテンツSEO+オンページSEO）
