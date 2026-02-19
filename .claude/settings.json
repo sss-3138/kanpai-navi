@@ -8,6 +8,19 @@
       "mcp__ahrefs__*"
     ]
   },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Read|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/guard-secrets.sh"
+          }
+        ]
+      }
+    ]
+  },
   "mcpServers": {
     "search-console": {
       "command": "bash",

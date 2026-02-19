@@ -181,36 +181,79 @@ kanpai-navi/
 
 ## チーム向けセットアップ
 
-新しいメンバーがリポジトリをクローンした後、以下を実行する:
+### 初回セットアップ（新メンバー）
 
 ```bash
-bash scripts/setup.sh     # 依存パッケージ・ビルド・.env 生成・pre-commitフック設定を一括実行
-vi .env                    # APIキーを設定
+bash scripts/setup.sh                # 依存パッケージ・ビルド・.env復号・pre-commitフック設定
+# → .env.enc が存在すれば復号を提案される（チーム共有パスフレーズが必要）
+# → .env.enc がなければ .env.example からコピー → 手動でAPIキーを設定
 ```
 
-セットアップスクリプトが行うこと:
-1. Node.js バージョン確認
-2. npm install（ルート＋全MCPサーバー）
-3. MCPサーバーのビルド（TypeScript → JavaScript）
-4. `.env.example` → `.env` のコピー
-5. pre-commit フック設定（シークレット検出）
-6. データディレクトリ作成
+### APIキーの暗号化・共有
+
+```bash
+# 1. .env にAPIキーを設定後、暗号化する
+bash scripts/encrypt-env.sh          # .env → .env.enc（AES-256-CBC）
+git add .env.enc && git commit       # 暗号化ファイルをGitにコミット
+
+# 2. 新メンバーは復号する
+bash scripts/decrypt-env.sh          # .env.enc → .env（パスフレーズ入力）
+```
+
+### パスフレーズ不要モード（CI/CD・自動化用）
+
+```bash
+export KANPAI_ENV_PASSPHRASE='チーム共有パスフレーズ'
+# → run-mcp.sh が .env.enc を自動復号（.env の生成不要、メモリ上で処理）
+```
 
 ## セキュリティ（APIキー・認証情報の管理）
 
-### 仕組み
-
-MCPサーバーは `scripts/run-mcp.sh` ラッパー経由で起動され、`.env` を自動読み込みする。
-これにより `.claude/settings.json` にAPIキーを書く必要がなく、Git管理下のファイルにシークレットが混入しない。
+### 3層の防御
 
 ```
-.claude/settings.json (Git管理) → scripts/run-mcp.sh → .env を読み込み → MCP サーバー起動
+┌─────────────────────────────────────────────────────────┐
+│  Layer 1: 暗号化（保管時のセキュリティ）                     │
+│  .env.enc (AES-256-CBC) → Git管理可能                      │
+│  .env (平文) → .gitignore で除外 + chmod 600               │
+│  credentials/ → .gitignore で除外 + chmod 700              │
+├─────────────────────────────────────────────────────────┤
+│  Layer 2: アクセス制御（Claude Code フック）                  │
+│  guard-secrets.sh が .env / credentials/ への              │
+│  Read / Bash(cat,printenv等) / Edit / Write をブロック     │
+│  → MCPサーバー経由のAPIアクセスのみ許可                      │
+├─────────────────────────────────────────────────────────┤
+│  Layer 3: コミット防止（pre-commit フック）                   │
+│  check-secrets.sh が APIキーパターンを検出してブロック         │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 仕組み
+
+```
+.claude/settings.json (Git管理・シークレットなし)
+  ↓ bash scripts/run-mcp.sh <server>
+.env (平文・chmod 600) または .env.enc (暗号化・自動復号)
+  ↓ 環境変数としてメモリ上に読み込み
+MCP サーバー起動（APIキーを使用）
 ```
 
 ### ルール
 
 - **APIキーやトークンは `.env` ファイルにのみ設定する**（`.env` は `.gitignore` で除外済み）
 - `.claude/settings.json` には**シークレットを絶対に書かない**（Git管理下のため）
-- サービスアカウントJSONキーは `credentials/` ディレクトリに配置する（Git除外済み）
+- サービスアカウントJSONキーは `credentials/` ディレクトリに配置する（Git除外済み・chmod 700）
 - `.env.example` にはプレースホルダー値のみを記載する（実際のキーは記載しない）
+- APIキー設定後は `scripts/encrypt-env.sh` で暗号化し、`.env.enc` をGitにコミットする
 - `scripts/check-secrets.sh` が pre-commit フックとして機能し、誤ったキーのコミットを検出してブロックする
+- `scripts/guard-secrets.sh` が Claude Code の PreToolUse フックとして機能し、`.env` / `credentials/` への直接アクセスをブロックする
+
+### セキュリティスクリプト一覧
+
+| スクリプト | 役割 | 実行タイミング |
+|-----------|------|--------------|
+| `scripts/encrypt-env.sh` | .env → .env.enc に暗号化 | APIキー変更時に手動実行 |
+| `scripts/decrypt-env.sh` | .env.enc → .env に復号 | 新メンバー初回 or 手動実行 |
+| `scripts/run-mcp.sh` | .env/.env.enc を読み込みMCPサーバー起動 | MCPサーバー起動時に自動 |
+| `scripts/guard-secrets.sh` | Claude Code の機密ファイルアクセスをブロック | Claude Code ツール実行時に自動 |
+| `scripts/check-secrets.sh` | コミットにAPIキーが含まれていないか検査 | git commit 時に自動 |

@@ -61,19 +61,38 @@ for dir in "${MCP_DIRS[@]}"; do
 done
 echo "  OK: MCPサーバーのビルドが完了しました。"
 
-# ----- 5. Create .env from .env.example -----
+# ----- 5. Create .env (from .env.enc or .env.example) -----
 echo ""
 echo "[5/7] 環境変数ファイルを確認中..."
-if [ ! -f ".env" ]; then
-  if [ -f ".env.example" ]; then
-    cp .env.example .env
-    echo "  OK: .env.example から .env を作成しました。"
-    echo "  NOTE: .env ファイルを編集してAPIキーを設定してください。"
-  else
-    echo "  WARNING: .env.example が見つかりません。.env を手動で作成してください。"
-  fi
-else
+if [ -f ".env" ]; then
   echo "  OK: .env は既に存在します。"
+elif [ -f ".env.enc" ]; then
+  echo "  暗号化された .env.enc が見つかりました。復号しますか？ (Y/n)"
+  read -r REPLY
+  if [[ ! "$REPLY" =~ ^[Nn]$ ]]; then
+    bash scripts/decrypt-env.sh
+  else
+    echo "  SKIP: .env の復号をスキップしました。後で scripts/decrypt-env.sh を実行してください。"
+  fi
+elif [ -f ".env.example" ]; then
+  cp .env.example .env
+  echo "  OK: .env.example から .env を作成しました。"
+  echo "  NOTE: .env ファイルを編集してAPIキーを設定してください。"
+else
+  echo "  WARNING: .env.example が見つかりません。.env を手動で作成してください。"
+fi
+
+# .env のパーミッションを所有者のみに制限
+if [ -f ".env" ]; then
+  chmod 600 .env
+  echo "  OK: .env のパーミッションを 600 に設定しました。"
+fi
+
+# credentials/ のパーミッションを所有者のみに制限
+if [ -d "credentials" ]; then
+  chmod 700 credentials/
+  find credentials/ -type f -exec chmod 600 {} \; 2>/dev/null || true
+  echo "  OK: credentials/ のパーミッションを制限しました。"
 fi
 
 # ----- 6. Install pre-commit hook -----
@@ -118,7 +137,8 @@ echo "  セットアップ完了！"
 echo "========================================"
 echo ""
 echo "  次のステップ:"
-echo "  1. .env ファイルにAPIキーを設定"
+echo "  1. .env ファイルにAPIキーを設定（.env.enc から復号済みの場合は不要）"
 echo "  2. credentials/ にサービスアカウントキーを配置"
-echo "  3. Claude Code で /strategy や /write-article を実行"
+echo "  3. APIキー設定後: bash scripts/encrypt-env.sh で暗号化（チーム共有用）"
+echo "  4. Claude Code で /strategy や /write-article を実行"
 echo ""
