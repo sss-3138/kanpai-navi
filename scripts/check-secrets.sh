@@ -19,6 +19,7 @@ SECRET_PATTERNS=(
   'GA_PROPERTY_ID=properties/[0-9]'
   'SERP_API_KEY=.{10,}'
   'KEYWORD_API_KEY=.{10,}'
+  'WP_APP_PASSWORD=.{10,}'
   'Bearer [A-Za-z0-9_\-]{20,}'
   '"private_key":\s*"-----BEGIN'
   '"client_email":\s*"[^"]*\.iam\.gserviceaccount\.com"'

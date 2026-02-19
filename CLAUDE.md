@@ -67,14 +67,33 @@
 
 ## ワークフロー
 
-### 記事作成パイプライン (End-to-End)
+### 記事作成パイプライン (End-to-End) — 10ステップ
 
 ```
 /full-pipeline で一括実行可能
 
-[1. 戦略立案] → [2. KW調査+ギャップ分析] → [3. 記事執筆] → [4. 編集・レビュー] → [5. 最終出力]
- Strategist      SEO Analyst             Writer           Editor            全エージェント
+[1. ペルソナ分析] → [2. SERPs調査] → [3. 関連KW取得] → [4. 構成作成] → [5. 構成レビュー]
+     Writer        SEO Analyst     SEO Analyst       Writer          Editor
+        ↓                                                         NG → Step 4 に戻る
+[6. 執筆リサーチ] → [7. 記事執筆] → [8. 記事レビュー] → [9. SWELL装飾] → [10. WP入稿]
+     Writer            Writer          Editor            Writer          Writer
+                                    NG → 修正 → 再レビュー
 ```
+
+### 各ステップの詳細
+
+| Step | 担当 | 内容 | 成果物 |
+|------|------|------|--------|
+| 1. ペルソナ分析 | Writer | KWから読者像・検索意図・悩みを定義 | ペルソナシート |
+| 2. SERPs調査 | SEO Analyst | 上位10記事の構成・文字数・トピック分析 | SERPs分析レポート |
+| 3. 関連KW取得 | SEO Analyst | 再検索KW・サジェストKW・共起語の取得 | キーワードセット |
+| 4. 構成作成 | Writer | Step 1-3 を元に見出し構成を作成 | 記事構成案 |
+| 5. 構成レビュー | Editor | 構成の網羅性・論理性・SEO適合性をチェック | 構成OK or 修正指示 |
+| 6. 執筆リサーチ | Writer | 構成の各セクションに必要な情報をGoogle調査 | リサーチメモ |
+| 7. 記事執筆 | Writer | 全情報を集約して記事本文を執筆 | 記事ドラフト |
+| 8. 記事レビュー | Editor | 品質・SEO・正確性・コンプライアンスをチェック | 合格 or 修正指示 |
+| 9. SWELL装飾 | Writer | SWELLテーマのブロックに合わせてHTML装飾 | SWELL装飾済みHTML |
+| 10. WP入稿 | Writer | WordPress REST APIで下書き投稿 | 下書き記事URL |
 
 ### SEO改善パイプライン
 
@@ -88,11 +107,12 @@
 1. **戦略フェーズ**: `/strategy` → 市場分析 → コンテンツ方針決定
 2. **調査フェーズ**: `/keyword-research` → KW調査 → 記事ブリーフ作成
 3. **ギャップ分析**: `/content-gap` → コンテンツギャップ・カニバリ検出
-4. **執筆フェーズ**: `/write-article` → 記事ドラフト作成
-5. **編集フェーズ**: `/edit-article` → 品質レビュー → 改善
+4. **執筆フェーズ**: `/write-article` → 10ステップパイプラインの実行
+5. **編集フェーズ**: `/edit-article` → 構成レビュー or 記事レビュー
 6. **テクニカル監査**: `/technical-audit` → クロール・インデックス・CWV・構造化データ
 7. **被リンク分析**: `/backlink-analysis` → 被リンク現状分析・競合ギャップ・営業支援
 8. **計測フェーズ**: `/check-rankings` → 順位チェック → レポート
+9. **入稿**: `/publish-draft` → SWELL装飾済みHTMLをWordPressに下書き投稿
 
 ## MCP サーバー
 
@@ -125,7 +145,8 @@ kanpai-navi/
 │       ├── content-calendar.md  # /content-calendar
 │       ├── competitor-analysis.md # /competitor-analysis
 │       ├── monthly-report.md    # /monthly-report
-│       └── full-pipeline.md     # /full-pipeline
+│       ├── full-pipeline.md     # /full-pipeline
+│       └── publish-draft.md     # /publish-draft
 ├── agents/                      # エージェント定義
 │   ├── strategist/              # 戦略家エージェント
 │   ├── seo-analyst/             # SEO分析エージェント（コンテンツSEO+オンページSEO）
