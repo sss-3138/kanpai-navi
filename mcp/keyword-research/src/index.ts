@@ -325,10 +325,8 @@ class DataForSeoAdapter implements KeywordApiAdapter {
   /**
    * Make an authenticated POST request to the DataForSEO API.
    */
-  private apiPost(
-    endpoint: string,
-    body: string
-  ): Promise<Record<string, unknown>> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private apiPost(endpoint: string, body: string): Promise<any> {
     return new Promise((resolve, reject) => {
       const options = {
         hostname: "api.dataforseo.com",
@@ -533,7 +531,8 @@ class UbersuggestAdapter implements KeywordApiAdapter {
   /**
    * Make an authenticated GET request to the Ubersuggest-style API.
    */
-  private apiGet(endpoint: string): Promise<Record<string, unknown>> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private apiGet(endpoint: string): Promise<any> {
     return new Promise((resolve, reject) => {
       const options = {
         hostname: "api.ubersuggest.com",

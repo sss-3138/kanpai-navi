@@ -5,10 +5,12 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "build:mcp": "npm run build:mcp:search-console && npm run build:mcp:serp-tracker && npm run build:mcp:keyword-research",
+    "build:mcp": "npm run build:mcp:search-console && npm run build:mcp:serp-tracker && npm run build:mcp:keyword-research && npm run build:mcp:google-analytics && npm run build:mcp:ahrefs",
     "build:mcp:search-console": "cd mcp/search-console && npm run build",
     "build:mcp:serp-tracker": "cd mcp/serp-tracker && npm run build",
     "build:mcp:keyword-research": "cd mcp/keyword-research && npm run build",
+    "build:mcp:google-analytics": "cd mcp/google-analytics && npm run build",
+    "build:mcp:ahrefs": "cd mcp/ahrefs && npm run build",
     "validate": "ts-node scripts/validate-article.ts",
     "setup": "bash scripts/setup.sh"
   },
